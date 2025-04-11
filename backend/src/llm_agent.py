@@ -2,7 +2,6 @@ from typing import Annotated
     
 from llama_index.core.tools import FunctionTool
 import os
-tavily_api_key ="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"
 
 from llama_index.tools.tavily_research.base import TavilyToolSpec
 
