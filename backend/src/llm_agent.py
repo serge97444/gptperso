@@ -51,7 +51,8 @@ async def run_agent(query : str , llm : HuggingFaceLLM , tokenizer : AutoTokeniz
                         Please summarize the result in a clear final answer")
 
    result = await Query_agent.run(query)
-
-   print(result)
+   result = str(result)
+   print('result : ',result)
+   print('res type : ', type(result))
 
    return result

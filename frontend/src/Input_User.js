@@ -26,7 +26,9 @@ function ProvideInput(){
         e.preventDefault();
 
         console.log(query)
-        const response = await api.post('/chat' , {message : query});
+        const response = await api.post('/chat' , {'message' : query});
+        console.log('response : ');
+        console.log(response);
         setAnswer(response.data.response);
         console.log(answer)
     }

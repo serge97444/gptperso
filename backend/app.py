@@ -23,9 +23,11 @@ def infos():
     return "hello from demo app"
 
 @app.post("/chat")
-def chat(message : Message):
+async def chat(message : Message):
     print('received message : ' , message)
-    response = run_agent(message)
-    sources = ["A","B"]
-    response_content = {"query":message.message , "sources" : sources, "response" : response}
+    response = await run_agent(message.message , llm=llm, tokenizer=tokenizer)
+    #sources = ["A","B"]
+    print('response : ' , response)
+    print('query : ' , message.message)
+    response_content = {"query":message.message ,  "response" : response}
     return JSONResponse(content=response_content, status_code=200)
