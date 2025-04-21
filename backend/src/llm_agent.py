@@ -4,7 +4,7 @@ from llama_index.core.tools import FunctionTool
 import os
 
 from llama_index.tools.tavily_research.base import TavilyToolSpec
-
+tavily_api_key = os.environ["tavily_key"]
 tavily_tool = TavilyToolSpec(tavily_api_key )
 #from llama_index.llms.vllm import Vllm
 

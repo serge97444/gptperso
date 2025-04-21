@@ -1,0 +1,13 @@
+llama-index
+fastapi
+pydantic
+transformers
+torch
+numpy
+pandas
+vllm
+ctransformers
+llama-index-tools-tavily-research
+llama-index-llms-huggingface 
+uvicorn
+gunicorn
