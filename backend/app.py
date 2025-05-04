@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from typing import Dict
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from src.llm_agent import run_agent,load_models
+#from utils.llm_agent import run_agent,load_models
 
 app = FastAPI(title="Demo app", version = "0.1",description="An agent API to send me stock messages")
 
@@ -16,18 +16,18 @@ app.add_middleware(CORSMiddleware,
 class Message(BaseModel):
     message:str
 
-llm, tokenizer = load_models()
+#llm, tokenizer = load_models()
 
 @app.get('/infos',tags = ['infos'])
 def infos():
     return "hello from demo app"
 
-@app.post("/chat")
-async def chat(message : Message):
-    print('received message : ' , message)
-    response = await run_agent(message.message , llm=llm, tokenizer=tokenizer)
-    #sources = ["A","B"]
-    print('response : ' , response)
-    print('query : ' , message.message)
-    response_content = {"query":message.message ,  "response" : response}
-    return JSONResponse(content=response_content, status_code=200)
+# @app.post("/chat")
+# async def chat(message : Message):
+#     print('received message : ' , message)
+#     response = await run_agent(message.message , llm=llm, tokenizer=tokenizer)
+#     #sources = ["A","B"]
+#     print('response : ' , response)
+#     print('query : ' , message.message)
+#     response_content = {"query":message.message ,  "response" : response}
+#     return JSONResponse(content=response_content, status_code=200)
